@@ -13,7 +13,7 @@ ${w_k}$ 是独立过程：$w_k∼N(0,Q^{v}_{k})$
 
 ${v_k}$ 是独立过程：$vk∼N(0,Q_k^v)$
 
-系统初始状态：$x0~N(x⃗ 0),P_0)$
+系统初始状态：$x0~N(\vec{a}_ 0),P_0)$
 
 卡尔曼滤波算法公式推到可见：[最佳线性无偏估计BLUE](https://blog.csdn.net/haxiongha/article/details/80861538)
 
