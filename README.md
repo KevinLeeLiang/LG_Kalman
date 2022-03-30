@@ -18,9 +18,9 @@ ${v_k}$ 是独立过程：$vk∼N(0,Q_k^v)$
 卡尔曼滤波算法公式推到可见：[最佳线性无偏估计BLUE](https://blog.csdn.net/haxiongha/article/details/80861538)
 
 - 状态计算分成——–时间更新和滤波更新  
-    时间更新：$\hat{x}_{k|k−1}=F_{k−1}\hat{x}_{k−1}$
+    时间更新： $\hat{x}_{k|k−1}=F_{k−1}\hat{x}_{k−1}$
     
-    滤波更新：$\hat{x}_{k}=\hat{x}_{k|k−1}+G_{k|k−1}\times\tilde{z}_{k|k−1}$
+    滤波更新： $\hat{x}_{k}=\hat{x}_{k|k−1}+G_{k|k−1}\times\tilde{z}_{k|k−1}$
 
     $G_{k|k-1}=P_{k|k-1}H^T_k[H_kP_{k|k-1}H^T_k+Q^v_k]^{-1}$
 
