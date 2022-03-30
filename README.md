@@ -1,10 +1,10 @@
 # LG_Kalman
 
 ##### 一、给出离散时间[线性](https://so.csdn.net/so/search?q=%E7%BA%BF%E6%80%A7&spm=1001.2101.3001.7020)动态系统和三个独立的Gauss随机过程：
-$$\begin{cases}
+\begin{cases}
  \ x_{k}= F_{k-1}x_{k-1}+\Gamma_{k-1}w_{k-1}\\
- \ z_{k}= H_{k}x_{k}+v_{k} \\
-\end{cases}$$
+ \ z_{k}=H_{k}x_{k}+v_{k} \\
+\end{cases}
 
 其中：  
 $x_{k}$ 是$k$时刻的系统状态向量，$F_{k}$是系统状态转移矩阵，而 $w_{k}$ 是过程演化噪声，$\Gamma_{k}$ 是噪声矩阵，$z_{k}$ 是 $k$ 时刻对系统的量测向量， $H_{k}$ 是量测矩阵，而 $v_{k}$ 是量测噪声。  
