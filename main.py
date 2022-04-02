@@ -7,7 +7,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 import sys
 from CsvReader import CsvFileReader
-from KalmanFilter import KalmanFilter
+from FirstOriderKalmanFilter import KalmanFilter_1stOrderSys
+from SecondOrderKalmanFilter import KalmanFilter_2ndOrderSys
+
 
 def print_hi(name):
   # Use a breakpoint in the code line below to debug your script.
@@ -135,7 +137,7 @@ def LG_Kalman_Filter_Test3():
   reader = CsvFileReader()
   reader.CsvFileReader(dir)
   vel_data = reader.GetVel_Origin()
-  kalman_filter = KalmanFilter(0.001, 0.1)
+  kalman_filter = KalmanFilter_1stOrderSys(0.001, 0.1)
   vel_filters = []
   i = 0
   xaxis = []
@@ -149,11 +151,40 @@ def LG_Kalman_Filter_Test3():
   plt.show()
   return
 
+def LG_Kalman_Filter_Test4():
+  dir = "test.csv"
+  reader = CsvFileReader()
+  reader.CsvFileReader(dir)
+  vel_data = reader.GetVel_Origin()
+  acc_data = reader.GetAcc_Origin()
+  kalman_filter = KalmanFilter_2ndOrderSys()
+  kalman_filter1 = KalmanFilter_1stOrderSys(0.001, 0.1)
+  vel_filters = []
+  vel_filters1 = []
+  i = 0
+  xaxis = []
+  for i in range(0, len(vel_data)):
+    vel, acc = vel_data[i], acc_data[i]
+    vel_filters1.append(kalman_filter1.KalmanFilterCalc(vel))
+    if i == 0:
+      kalman_filter.SetState0(vel, acc)
+      vel_filter = vel
+    else:
+      vel_filter = kalman_filter.Horizon_klm_estimate(vel, acc, 0.05)
+    vel_filters.append(vel_filter)
+    xaxis.append(i)
+    
+  plt.plot(xaxis, vel_filters, "g-")
+  plt.plot(xaxis, vel_data, "b-")
+  plt.plot(xaxis, vel_filters1, "r-")
+  plt.show()
+  return
+
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
   print_hi('PyCharm')
   # LG_Kalman_Filter_Test1()
   # LG_Kalman_Filter_Test2()
-  LG_Kalman_Filter_Test3()
+  LG_Kalman_Filter_Test4()
     
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

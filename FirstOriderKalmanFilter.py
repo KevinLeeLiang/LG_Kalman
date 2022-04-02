@@ -8,9 +8,9 @@ class KalmanInfo:
 		self.R           = 0				# 观测矩阵的方差,表示测量模型的噪声,是对测量系统的信任程度
 		self.P           = 1				# 状态协方差,这个初值不重要,因为会不停更新
 		
-class KalmanFilter:
+class KalmanFilter_1stOrderSys:
 	def __init__(self, Qval, Rval):
-		self.__kalman_info = KalmanInfo()
+		self.__kalman_info 		= KalmanInfo()
 		self.__kalman_info.Q  = Qval
 		self.__kalman_info.R  = Rval
 	
