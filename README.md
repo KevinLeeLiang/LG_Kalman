@@ -1,10 +1,10 @@
 # LG_Kalman
 
 ##### 一、给出离散时间[线性](https://so.csdn.net/so/search?q=%E7%BA%BF%E6%80%A7&spm=1001.2101.3001.7020)动态系统和三个独立的Gauss随机过程：
-$$\begin{cases}
- \ x_{k}= F_{k-1}x_{k-1}+\Gamma_{k-1}w_{k-1}\\
- \ z_{k}=H_{k}x_{k}+v_{k} \\
-\end{cases}$$
+\begin{cases}
+x_{k} = F_{k-1}x_{k-1}+\Gamma_{k-1}w_{k-1}\\ 
+z_{k} = H_{k}x_{k}+v_{k}\\ 
+\end{cases}
 
 其中：  
 $x_{k}$ 是$k$时刻的系统状态向量，$F_{k}$是系统状态转移矩阵，而 $w_{k}$ 是过程演化噪声，$\Gamma_{k}$ 是噪声矩阵，$z_{k}$ 是 $k$ 时刻对系统的量测向量， $H_{k}$ 是量测矩阵，而 $v_{k}$ 是量测噪声。  
@@ -13,20 +13,20 @@ ${w_k}$ 是独立过程：$w_k∼N(0,Q^{v}_{k})$
 
 ${v_k}$ 是独立过程：$vk∼N(0,Q_k^v)$
 
-系统初始状态：$x0~N(x⃗ 0),P_0)$
+系统初始状态：$x_{0}\sim N(\vec x_{0} ,P_{0})$
 
 卡尔曼滤波算法公式推到可见：[最佳线性无偏估计BLUE](https://blog.csdn.net/haxiongha/article/details/80861538)
 
 - 状态计算分成——–时间更新和滤波更新  
-    时间更新：$\hat{x}_{k|k−1}=F_{k−1}\hat{x}_{k−1}$
+    时间更新： $\hat{x}_ {k|k−1}=F_ {k−1}\hat{x}_ {k−1}$
     
-    滤波更新：$\hat{x}_{k}=\hat{x}_{k|k−1}+G_{k|k−1}\times\tilde{z}_{k|k−1}$
+    滤波更新： $\hat{x}_ {k}=\hat{x}_ {k|k−1}+G_{k|k−1}\times\tilde{z}_ {k|k−1}$
 
     $G_{k|k-1}=P_{k|k-1}H^T_k[H_kP_{k|k-1}H^T_k+Q^v_k]^{-1}$
 
     
 - 方差计算分成——-时间更新和滤波更新  
-    时间更新：$P_{k|k-1}=F_{k-1}P_{k-1}F^T_{k-1}+\Gamma_{k-1}Q^{w}_{k-1}\Gamma^{T}_{k-1}$
+    时间更新：$P_{k|k-1}=F_{k-1}P_{k-1}F^T_{k-1}+\Gamma_{k-1}Q^{w}_ {k-1}\Gamma^{T}_ {k-1}$
     
     滤波更新：$P_k=(I−G_{k|k−1}Hk)P_{k|k−1Pk}$
     
