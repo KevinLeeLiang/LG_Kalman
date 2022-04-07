@@ -16,9 +16,11 @@ class KalmanFilter_2ndOrderSys:
 		self.__kalman_info.A_matrix[1, 1] = 1
 		self.__kalman_info.p_variance[0, 0] = 1
 		self.__kalman_info.p_variance[1, 1] = 1
-		self.__kalman_info.R_variance[0, 0] = 0.01
-		self.__kalman_info.R_variance[1, 1] = 0.01
-		self.__kalman_info.Q_variance[0, 0] = 0.001
+		self.__kalman_info.R_variance[0, 0] = 0.001
+		self.__kalman_info.R_variance[1, 1] = 1.4
+		self.__kalman_info.Q_variance[0, 0] = 0.02
+		self.__kalman_info.Q_variance[0, 1] = 0.0037
+		self.__kalman_info.Q_variance[1, 0] = -0.0037
 		self.__kalman_info.Q_variance[1, 1] = 0.001
 	
 	def SetState0(self, v, a):
